@@ -9,6 +9,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { Upload, Sparkles, Zap, Users, ImageIcon, Layers } from "lucide-react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { useToast } from "@/hooks/use-toast"
+import { UserMenu } from "@/components/user-menu"
+import Link from "next/link"
 
 export default function HomePage() {
   const [prompt, setPrompt] = useState("")
@@ -125,7 +127,12 @@ export default function HomePage() {
               <a href="#faq" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                 FAQ
               </a>
-              <Button size="sm">Start Editing</Button>
+              <div className="flex items-center gap-2">
+                <UserMenu />
+                <Button size="sm" asChild>
+                  <Link href="/dashboard">Dashboard</Link>
+                </Button>
+              </div>
             </div>
           </nav>
         </div>
